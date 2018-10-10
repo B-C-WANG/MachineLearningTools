@@ -13,7 +13,11 @@ class LinearNN():
 
     def build_model(self):
         model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Dense(self.y.shape[1], input_shape=(self.X.shape[1],)))
+        try:
+            model.add(tf.keras.layers.Dense(self.y.shape[1], input_shape=(self.X.shape[1],)))
+        except IndexError:
+            model.add(tf.keras.layers.Dense(1, input_shape=(self.X.shape[1],)))
+
 
         model.compile(optimizer=tf.train.AdamOptimizer(0.01), loss=tf.keras.losses.mean_squared_error)
         self.model = model
@@ -28,6 +32,8 @@ class LinearNN():
 
         error = np.mean(np.abs(pred_y-real_y))
         print("Mean error", error)
+        plt.plot(pred_y,real_y,"ro")
+        plt.show()
 
     def plot_weights(self):
         weights = self.model.get_weights()[0]
