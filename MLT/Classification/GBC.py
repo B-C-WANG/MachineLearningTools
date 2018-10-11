@@ -16,8 +16,8 @@ class GBC():
             self.y = np.argmax(self.y,axis=1)
 
 
-    def fit(self):
-        self.model = GradientBoostingClassifier(n_estimators=50)
+    def fit(self,n_estimators=50):
+        self.model = GradientBoostingClassifier(n_estimators=n_estimators)
         self.model.fit(self.X,self.y)
 
     def show_result(self,label=None):
