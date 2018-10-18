@@ -38,7 +38,13 @@ class GBC():
         print("Accuracy by label:\n", "\n".join(list(correct_ratio.astype("str"))))
 
     def plot_importance(self,label=None):
-        plt.barh(list(range(len(self.model.feature_importances_))),self.model.feature_importances_)
+        self.plot_importance_s(label,feature_importance=self.model.feature_importances_)
+
+    @staticmethod
+    def plot_importance_s(label=None,feature_importance=None):
+
+        plt.barh(list(range(len(feature_importance))), feature_importance)
+
         if label != None:
             for i in range(len(label)):
                 string = label[i]
