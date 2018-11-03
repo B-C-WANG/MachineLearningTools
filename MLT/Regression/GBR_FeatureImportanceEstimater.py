@@ -12,9 +12,9 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
 
 class GBRFIE(object):
-    def __init__(self,X,y,test_split_ratio=0.3):
+    def __init__(self,X,y,test_split_ratio=0.3,shuffle=True):
         self.test_split_ratio = test_split_ratio
-        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(X, y, test_size=test_split_ratio, shuffle=True)
+        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(X, y, test_size=test_split_ratio, shuffle=shuffle)
 
     def fit(self,n_estimators=40):
 
