@@ -3,12 +3,14 @@ from distutils.core import setup
 
 package_dir = {"MLT.Classification":"MLT/Classification",
                "MLT.DataPreprocessing": "MLT/DataPreprocessing",
-               "MLT.Regression": "MLT/Regression"}
+               "MLT.Regression": "MLT/Regression",
+               "MLT.VAE":"MLT/VAE"}
 
 packages = [
       "MLT.Classification",
 "MLT.DataPreprocessing",
-"MLT.Regression"
+"MLT.Regression",
+      "MLT.VAE"
 
 ]
 
