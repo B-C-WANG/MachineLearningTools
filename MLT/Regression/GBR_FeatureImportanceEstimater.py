@@ -5,8 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import tqdm
-X = np.load("X.npy")
-y = np.load('y.npy')
+
 
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
