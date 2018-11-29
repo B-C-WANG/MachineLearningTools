@@ -1,4 +1,6 @@
 # MachineLearningTools
+关于代码的使用，大部分使用代码都在CNECDA项目中，需要整理  
+   
 ## 整理存储我在机器学习项目中经常重复使用的工具
 - 使用python setup.py install安装
 
@@ -13,3 +15,8 @@
 
 ### DataPreprocession
 - DataReplication:数据扩增，对某个label的数据进行复制，保持样本数量平衡
+
+### Clustering
+
+### VAE
+- VAE：VAE的作用：降维，如果降维效果很好，可以用encode的feature做回归，同时还能够逆向生成原始数据
