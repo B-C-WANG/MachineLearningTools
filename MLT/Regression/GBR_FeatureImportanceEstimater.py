@@ -11,18 +11,27 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
 
 class GBRFIE(object):
-    def __init__(self,X,y,test_split_ratio=0.3,shuffle=True):
+    def __init__(self,
+                 X:np.ndarray,
+                 y:np.ndarray,
+                 test_split_ratio:float=0.3,
+                 shuffle:bool=True):
         self.test_split_ratio = test_split_ratio
         self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(X, y, test_size=test_split_ratio, shuffle=shuffle)
 
-    def fit(self,n_estimators=40):
+    def fit(self,n_estimators:int=40) :
 
         model = GradientBoostingRegressor(n_estimators=n_estimators)
         model.fit(self.x_train, self.y_train)
         self.model = model
 
     @staticmethod
-    def search_n_estimators_to_error(X,y,split_ratio=0.3,search_min=20,search_max=160,repeat_for_each_n=10):  # 找error与fit参数的关系
+    def search_n_estimators_to_error(X:np.ndarray,
+                                     y:np.ndarray,
+                                     split_ratio:float=0.3,
+                                     search_min:int=20,
+                                     search_max:int=160,
+                                     repeat_for_each_n:int=10):  # 找error与fit参数的关系
         '''
 
         :param search_min:
@@ -47,7 +56,11 @@ class GBRFIE(object):
             x.append(i)
         return x, train_error_l, test_error_l
 
-    def show_pred_train_test(self,train_error=False,plot_fig=True,save_fig_filename=False,point_size=60):
+    def show_pred_train_test(self,
+                             train_error:bool=False,
+                             plot_fig:bool=True,
+                             save_fig_filename:str=False,
+                             point_size:int=60):
         model = self.model
         # 绿色为训练集，红色为测试集
         pred_train_y = model.predict(self.x_train)
